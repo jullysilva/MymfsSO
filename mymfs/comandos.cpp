@@ -20,7 +20,12 @@ bool arquivoEstaVazio(std::ifstream& pFile)
 	return pFile.peek() == std::ifstream::traits_type::eof();
 }
 
+
 void config(string caminhoComando) {
+	int i = 0;
+	char caminhos[caminhoComando.length];
+	strcpy(caminhos, caminhoComando.c_str());
+
 	string caminhoConfig = caminhoComando + "/mymfs.config";
 
 	if (mymfsEstaConfigurado(caminhoComando)) {   //Verifica se o arquivo Config ja existe no caminho especificado

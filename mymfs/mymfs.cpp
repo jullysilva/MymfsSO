@@ -11,12 +11,16 @@ int main(int argc, char **argv) {
 
 	//Deve possuir no minimo 3 argumentos (nome do programa - passado automaticamente,
 	//caminho da unidade X, comando a ser executado)
-	if (argc >= 3) {
+	if (argc >= 5) {
+		cout << argv[2] << endl;
+
 		string caminhoComando = argv[1]; //Caminho de onde o Mymfs deve ser executado
-		string comando = argv[2];        //Comando do Mymfs que deve ser executado
+		caminhoComando = caminhoComando + argv[2];
+		caminhoComando = caminhoComando + argv[3];
+		string comando = argv[5];        //Comando do Mymfs que deve ser executado
 
 		if (comando == "config") {
-			config(caminhoComando);
+				config(caminhoComando);
 		}
 
 		else if (comando == "import") {
@@ -92,7 +96,7 @@ int main(int argc, char **argv) {
 			cout << "Comando invalido." << endl;
 	}
 	else {
-		cout << "Por favor, informe os argumentos necessarios" << endl;
+		cout << "Por favor, informe os argumentos necessarios." << endl;
 	}
 
 	return 0;
