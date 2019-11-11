@@ -12,13 +12,13 @@ int main(int argc, char **argv) {
 	//Deve possuir no minimo 3 argumentos (nome do programa - passado automaticamente,
 	//caminho da unidade X, comando a ser executado)
 	if (argc >= 5) {
-		cout << argv[2] << endl;
 
 		string caminhoComando = argv[1]; //Caminho de onde o Mymfs deve ser executado
 		caminhoComando = caminhoComando + argv[2];
 		caminhoComando = caminhoComando + argv[3];
-		string comando = argv[5];        //Comando do Mymfs que deve ser executado
 
+		string comando = argv[argc-1];        //Comando do Mymfs que deve ser executado
+		
 		if (comando == "config") {
 				config(caminhoComando);
 		}

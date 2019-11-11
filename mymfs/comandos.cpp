@@ -4,6 +4,8 @@
 #include <fstream>
 #include <math.h>
 #include <string>
+#include <cstring>
+#include <cstdlib>
 #include <filesystem>
 
 namespace fsys = std::filesystem;
@@ -22,19 +24,20 @@ bool arquivoEstaVazio(std::ifstream& pFile)
 
 
 void config(string caminhoComando) {
-	int i = 0;
-	char caminhos[caminhoComando.length];
-	strcpy(caminhos, caminhoComando.c_str());
-
-	string caminhoConfig = caminhoComando + "/mymfs.config";
-
-	if (mymfsEstaConfigurado(caminhoComando)) {   //Verifica se o arquivo Config ja existe no caminho especificado
-		cout << "O Mymfs ja esta configurado nesta unidade." << endl;
-	}
-	else {
-		ofstream arquivoConfig(caminhoConfig);       //Cria o arquivo config, configurando o Mymfs na unidade especificada
-		arquivoConfig.close();
-		cout << "O Mymfs foi configurado nesta unidade com sucesso." << endl;
+	int i = caminhoComando.length();
+	int j = 0;
+	for (int j = 0; j < 1; j++) {
+		cout << caminhoComando[j] << endl;
+		string caminhoConfig = caminhoComando[j] + "/mymfs.config";
+		
+		if (mymfsEstaConfigurado(caminhoComando)) {   //Verifica se o arquivo Config ja existe no caminho especificado
+			cout << "O Mymfs ja esta configurado nesta unidade." << endl;
+		}
+		else {
+			ofstream arquivoConfig(caminhoConfig);       //Cria o arquivo config, configurando o Mymfs na unidade especificada
+			arquivoConfig.close();
+			cout << "O Mymfs foi configurado nesta unidade com sucesso." << endl;
+		}
 	}
 }
 
